@@ -1,0 +1,33 @@
+import {
+  checkAccessibility,
+  itSupportsSystemProps,
+  itSupportsFocusEvents,
+  itIsPolymorphic,
+  render,
+} from "testing";
+import { CloseButton, CloseButtonProps } from "./CloseButton";
+
+const defaultProps: CloseButtonProps = {};
+
+describe("@mantine/core/CloseButton", () => {
+  checkAccessibility([
+    () => <CloseButton aria-label="test" />,
+    () => <CloseButton title="test" />,
+  ]);
+  itSupportsFocusEvents(CloseButton, defaultProps, ".mantine-ActionIcon-root");
+  itIsPolymorphic(CloseButton, defaultProps);
+  itSupportsSystemProps({
+    component: CloseButton as any,
+    props: defaultProps,
+    displayName: "@mantine/core/CloseButton",
+    refType: HTMLButtonElement,
+    providerName: "CloseButton",
+  });
+
+  it("sets width and height on CloseIcon based on iconSize prop", () => {
+    const { container } = render(() => <CloseButton iconSize={45} />);
+    const svg = container.querySelector("svg");
+    expect(svg.getAttribute("width")).toBe("45");
+    expect(svg.getAttribute("height")).toBe("45");
+  });
+});

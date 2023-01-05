@@ -1,0 +1,27 @@
+import { ComponentProps } from "solid-js";
+import type {
+  InputStylesNames,
+  InputSharedProps,
+  InputWrapperStylesNames,
+  InputWrapperBaseProps,
+} from "../Input";
+import type { SelectItemsStylesNames } from "./SelectItems/SelectItems";
+import type { SelectPopoverStylesNames } from "./SelectPopover/SelectPopover";
+
+export interface SelectItem {
+  value: string;
+  label?: string;
+  disabled?: boolean;
+  group?: string;
+  [key: string]: any;
+}
+
+export type BaseSelectStylesNames =
+  | InputStylesNames
+  | InputWrapperStylesNames
+  | SelectItemsStylesNames
+  | SelectPopoverStylesNames;
+
+export type BaseSelectProps = InputWrapperBaseProps &
+  InputSharedProps &
+  Omit<ComponentProps<"input">, "value" | "onChange" | "size" | "defaultValue">;
