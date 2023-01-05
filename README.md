@@ -1,34 +1,39 @@
-## Usage
+# What is this?
+This is a port of the React component library **Mantine**, to be used with **SolidJS**.
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+[Check out the original library](https://mantine.dev "Check out the original library")
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+[Check out SolidJS](https://www.solidjs.com/ "Check out SolidJS")
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
+This port is based on Mantine version 5.7.2 (at least for now)
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+All credits regarding component styling, naming and logic, design system and other functions goes to the Mantine team.
 
-## Available Scripts
+# Status
+This library is nowhere near to be production ready. Expect a lot of bugs both in component functionality and looks.
 
-In the project directory, you can run:
+- [X] All components from mantine-core ported (they may not look and behave exactly the same but they are there)
+- [X] Support for storybook
+- [X] Original tests imported (not all of them passes)
+- [ ] All test passing
+- [ ] All demos with realtime code update imported as stories
+- [ ] Extra libs ported:
+	- [ ] mantine-form
+	- [ ] mantine-dates
+	- [ ] mantine-notifications
+	- [ ] mantine-modals
+- [ ] Fix bugs
 
-### `npm dev` or `npm start`
+# Techs
+- Package management: pnpm
+- Testing and running: vite/vitest
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Ported dependencies
+Mantine has some dependencies, that also had to be ported to Solid. They are not created as separate libraries, because the goal was to only import the bare-minimal functionality that is required by mantine to work:
+- emotion
+- floating-ui
 
-The page will reload if you make edits.<br>
-
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-## Deployment
-
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+# Acknowledgments
+I took some inspiration or actual code from other libraries that were already ported to SolidJS.
+- [HopeUI](https://hope-ui.com/ "HopeUI"): helped implementing the polymorphic component and was a reference to other ideas on how to port React code to Solid
+- [SUID](https://suid.io/ "SUID"): got the idea and code for children/component inspection + other techniques to help porting React
